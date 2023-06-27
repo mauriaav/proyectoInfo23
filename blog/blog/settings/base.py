@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
+import os 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -20,9 +21,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-v9hwok-l+#dzixh%=-y6=$*v6r1pitbo3k^z0zd$g(kl0g4kgc'
+SECRET_KEY = 'django-insecure-p@982e&z6)2s&i236x+arrx^hcthbg$q+v1)_vbm$5^@z)b-$)'
 
-
+AUTH_USER_MODEL = 'usuarios.Usuario' ##Especifica un modelo de usuario(el qeu creamos), así no utiliza el que viene por default
 
 
 # Application definition
@@ -34,6 +35,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'apps.usuarios' ## Dirección de la app
 ]
 
 MIDDLEWARE = [
@@ -51,7 +53,7 @@ ROOT_URLCONF = 'blog.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(os.path.dirname(BASE_DIR), 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -105,7 +107,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = 'static/'
-
+STATICFILES_DIRS = (os.path.join(os.path.dirname(BASE_DIR),'static'),) ## Dirección de los archivos staticos para que se carguen
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
