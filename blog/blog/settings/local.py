@@ -9,7 +9,12 @@ ALLOWED_HOSTS = []
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        #engine = el motor
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'blog_personal',
+        'USER': 'root',
+        'PASSWORD': 'Enero123+',
+        'HOST': 'localhost',
+        'PORT': '',
     }
 }
