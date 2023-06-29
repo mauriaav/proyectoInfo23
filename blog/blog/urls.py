@@ -17,11 +17,13 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from . import views
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),   
     #Primer parámetro: es el texto de URL
-    #Segundo parámetro: La vista que se va a ejecutar
+    #Segundo parámetro: La vista que se va a ejecutar, el nombre de la función del archivo views.py
     #Tecer parámetro: nombre de la url ,este nombre se usa en html para ir a esa página
     path('', views.Home, name='home'),   
     path('nosotros/', views.Nosotros, name='nosotros'),
@@ -29,5 +31,6 @@ urlpatterns = [
 
     ##URLS Aplicaciones
     path('noticias/', include('apps.noticias.urls')),
+    path('escribir/', include('apps.escribir.urls')),
 
-]
+] + static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT) ##Carpeta de imágenes

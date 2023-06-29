@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block titulo%}Ingresar texto{% endblock titulo%}
+
+
+{% block contenido %}
+    <h2> Acá podes escribir </h2>
+    <ul>
+        {% for nombre in nombres %}
+        <li>{{nombre}}</li>
+        {% endfor %}
+    </ul>
+{% endblock %}

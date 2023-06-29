@@ -6,4 +6,5 @@ app_name = 'noticias'  ##Se crea el nombre de la app para que urls.py del proyec
 urlpatterns = [
     ##URLS Aplicaciones
     path('', views.ListarNoticas, name='listar'),
+    path('detalle/<int:pk>', views.NoticiaParticular, name= 'detalle')
 ]

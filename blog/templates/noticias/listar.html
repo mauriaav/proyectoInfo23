@@ -3,6 +3,18 @@
 
 {% block titulo%}NOTICAS{% endblock titulo%}
 
-{% block contenido%}
-    <h2>Acá están las noticias</h2>
+
+{% block contenido %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+    <h2>Acá están las noticias </h2>
+    {%for not in noticias%}
+        <img src="{{not.imagen.url}}" width = "50">
+        <p>TITULO: {{not.titulo}}</p>
+        <p>FECHA: {{not.fecha_publicacion}}</p>
+        <p>CATEGORIA: {{not.categoria_noticia}}</p>
+        <p>CONTENIDO: {{not.contenido}}</p>
+        <a href="{% url 'noticias:detalle' not.pk %}">IR A</a>
+        
+    {% endfor %}
 {% endblock contenido%}
+
